@@ -63,7 +63,7 @@ import DadJoke from './components/DadJoke';
      fontWeight: 'bold'
    },
    infinite: {
-     fontSize: 23,
+     fontSize: 30,
      textAlign: 'center',
      fontWeight: 'bold'
    }

@@ -17,7 +17,11 @@ import { StyleSheet, Text, View } from 'react-native';
    container: {
      flex: 1,
      alignItems: 'center',
-     paddingTop: 70,
+     justifyContent: 'center',
+     marginTop: 60,
+     marginBottom: 60,
+     backgroundColor: '#e6e6e6',
+     borderRadius: 100,
    },
    textJoke: {
      fontSize: 25,
