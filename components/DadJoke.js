@@ -7,7 +7,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
      return (
        <View style={styles.container}>
-       <Text>{this.props.joke}</Text>
+       <Text style={styles.textJoke}>{this.props.joke}</Text>
        </View>
      );
    }
@@ -15,10 +15,13 @@ import { StyleSheet, Text, View } from 'react-native';
 
  const styles = StyleSheet.create({
    container: {
-     fontSize: 30,
-     color: 'blue',
      flex: 1,
      alignItems: 'center',
      justifyContent: 'center',
+   },
+   textJoke: {
+     fontSize: 25,
+     textAlign: 'center',
+     fontFamily: 'notoserif'
    }
  });

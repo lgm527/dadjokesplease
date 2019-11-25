@@ -52,8 +52,5 @@ import DadJoke from './components/DadJoke';
      alignItems: 'center',
      justifyContent: 'center',
      backgroundColor: '#FFFDE4'
-   },
-   loadingText: {
-     fontSize: 30
    }
  });
