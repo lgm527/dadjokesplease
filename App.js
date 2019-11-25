@@ -1,27 +1,42 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import SendSMS from 'react-native-sms';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import DadJoke from './components/DadJoke';
 
- export default class App extends React.Component {
+ export default class App extends Component {
 
-   state = {
-     sent: false
-   };
+   state = { joke: '' }
 
    componentDidMount() {
+     this.fetchDadJoke()
    }
+
+   fetchDadJoke() {
+     fetch(`https://icanhazdadjoke.com/`, {
+       headers: {
+         Accept: 'application/json'
+       }
+     })
+     .then(res => res.json())
+     .then(data => this.setState({joke: data.joke}))
+     .catch(err => {
+       console.log(err);
+       this.setState({joke: 'dad jokes unavailable right now 😞'})
+     })
+   }
+
 
    render() {
 
      return (
        <View style={styles.container}>
-         {!this.state.sent ? (
-           <View style={styles.loadingContainer}>
-             <Text stlye={styles.loadingText}>Hi</Text>
-           </View>
-           ) : (
 
-         )}
+             <DadJoke style={styles.loadingContainer} joke={this.state.joke}/>
+
+             <Button
+              title="One Fresh Dad Joke Please"
+              onPress={() => this.fetchDadJoke()}
+            />
+
        </View>
      );
    }
