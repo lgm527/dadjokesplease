@@ -20,7 +20,7 @@ import DadJoke from './components/DadJoke';
      .then(data => this.setState({joke: data.joke}))
      .catch(err => {
        console.log(err);
-       this.setState({joke: 'dad jokes unavailable right now 😞'})
+       this.setState({joke: 'Oh no! something went wrong, 😞 dad jokes unavailable right now'})
      })
    }
 
@@ -30,11 +30,17 @@ import DadJoke from './components/DadJoke';
      return (
        <View style={styles.container}>
 
-             <DadJoke style={styles.loadingContainer} joke={this.state.joke}/>
+          <Text style={styles.opener}>Welcome to your infinite supply of dad jokes!</Text>
+          <Text style={styles.infinite}>∞ 👨 💬</Text>
+
+             <DadJoke joke={this.state.joke}/>
 
              <Button
               title="One Fresh Dad Joke Please"
+              color="#4d94ff"
+              accessibilityLabel="One Fresh Dad Joke Please"
               onPress={() => this.fetchDadJoke()}
+              underlayColor={'black'}
             />
 
        </View>
@@ -45,12 +51,20 @@ import DadJoke from './components/DadJoke';
  const styles = StyleSheet.create({
    container: {
      flex: 1,
-     backgroundColor: '#fff'
+     backgroundColor: '#fff',
+     paddingBottom: 40,
+     padding: 20,
    },
-   loadingContainer: {
-     flex: 1,
-     alignItems: 'center',
-     justifyContent: 'center',
-     backgroundColor: '#FFFDE4'
+   opener: {
+     paddingTop: 40,
+     padding: 10,
+     fontSize: 23,
+     textAlign: 'center',
+     fontWeight: 'bold'
+   },
+   infinite: {
+     fontSize: 23,
+     textAlign: 'center',
+     fontWeight: 'bold'
    }
  });
