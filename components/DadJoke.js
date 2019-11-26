@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
  export default class DadJoke extends Component {
 
@@ -7,7 +7,9 @@ import { StyleSheet, Text, View } from 'react-native';
 
      return (
        <View style={styles.container}>
+       <ScrollView>
        <Text style={styles.textJoke}>{this.props.joke}</Text>
+       </ScrollView>
        </View>
      );
    }
@@ -18,17 +20,16 @@ import { StyleSheet, Text, View } from 'react-native';
      flex: 1,
      alignItems: 'center',
      justifyContent: 'center',
-     marginTop: 60,
-     marginBottom: 60,
+     marginTop: 30,
+     marginBottom: 30,
      backgroundColor: '#e6e6e6',
-     borderRadius: 100,
+     borderRadius: 80,
    },
    textJoke: {
      fontSize: 25,
      padding: 50,
      textAlign: 'center',
      fontFamily: 'notoserif',
-     backgroundColor: '#e6e6e6',
-     borderRadius: 100,
+
    }
  });
