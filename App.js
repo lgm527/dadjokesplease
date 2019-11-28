@@ -4,10 +4,15 @@ import DadJoke from './components/DadJoke';
 
  export default class App extends Component {
 
-   state = { joke: '' }
+   state = { joke: '', bgcolor: 'White' }
 
    componentDidMount() {
-     this.fetchDadJoke()
+     this.fetchDadJoke();
+   }
+
+   updateJokeAndColor() {
+     fetchDadJoke();
+     changeBGColor();
    }
 
    fetchDadJoke() {
@@ -24,6 +29,14 @@ import DadJoke from './components/DadJoke';
      })
    }
 
+   function getRandomArbitrary(min, max) {
+     return Math.random() * (max - min) + min;
+    }
+
+   changeBGColor() {
+     let index = getRandomArbitrary(0, 13);
+     this.setState({ bgcolor: colors[index] });
+   }
 
    render() {
 
@@ -39,7 +52,7 @@ import DadJoke from './components/DadJoke';
               title="One Fresh Dad Joke Please"
               color="#4d94ff"
               accessibilityLabel="One Fresh Dad Joke Please"
-              onPress={() => this.fetchDadJoke()}
+              onPress={() => this.updateJokeAndColor()}
               underlayColor={'black'}
             />
 
@@ -48,10 +61,26 @@ import DadJoke from './components/DadJoke';
    }
  }
 
+ const colors = [
+   '#00FFFF', //Aqua
+   '#7FFFD4', //Aquamarine
+   '#EE82EE', //Violet
+   '#7FFF00', //Chartreuse
+   '#FF7F50', //Coral
+   '#6495ED', //CornflowerBlue
+   '#DC143C', //Crimson
+   '#006400', //Dark Green
+   '#FF8C00', //Dark Orange
+   '#FF1493', //Deep Pink
+   '#1E90FF', //Dodger Blue
+   '#FFD700', //Gold
+   '#FFFFFF', //White
+ ] //13
+
  const styles = StyleSheet.create({
    container: {
      flex: 1,
-     backgroundColor: '#fff',
+     backgroundColor: this.state.bgcolor,
      paddingBottom: 40,
      padding: 20,
    },
