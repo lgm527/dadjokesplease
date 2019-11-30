@@ -4,10 +4,11 @@ import DadJoke from './components/DadJoke';
 
  export default class App extends Component {
 
-   state = { joke: '', bgcolor: 'White' }
+   state = { joke: '', bgcolor: '' };
 
    componentDidMount() {
      this.fetchDadJoke();
+     this.setState({ bgcolor: 'White' });
    }
 
    updateJokeAndColor() {
@@ -29,7 +30,7 @@ import DadJoke from './components/DadJoke';
      })
    }
 
-   function getRandomArbitrary(min, max) {
+   getRandomArbitrary(min, max) {
      return Math.random() * (max - min) + min;
     }
 
