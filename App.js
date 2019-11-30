@@ -12,8 +12,8 @@ import DadJoke from './components/DadJoke';
    }
 
    updateJokeAndColor() {
-     fetchDadJoke();
-     changeBGColor();
+     this.fetchDadJoke();
+     this.changeBGColor();
    }
 
    fetchDadJoke() {
