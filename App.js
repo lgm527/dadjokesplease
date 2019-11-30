@@ -4,6 +4,43 @@ import DadJoke from './components/DadJoke';
 
  export default class App extends Component {
 
+  colors = [
+     '#00FFFF', //Aqua
+     '#7FFFD4', //Aquamarine
+     '#EE82EE', //Violet
+     '#7FFF00', //Chartreuse
+     '#FF7F50', //Coral
+     '#6495ED', //CornflowerBlue
+     '#DC143C', //Crimson
+     '#006400', //Dark Green
+     '#FF8C00', //Dark Orange
+     '#FF1493', //Deep Pink
+     '#1E90FF', //Dodger Blue
+     '#FFD700', //Gold
+     '#FFFFFF', //White
+   ] //13
+
+    styles = StyleSheet.create({
+     container: {
+       flex: 1,
+       backgroundColor: this.state.bgcolor,
+       paddingBottom: 40,
+       padding: 20,
+     },
+     opener: {
+       paddingTop: 40,
+       padding: 10,
+       fontSize: 23,
+       textAlign: 'center',
+       fontWeight: 'bold'
+     },
+     infinite: {
+       fontSize: 30,
+       textAlign: 'center',
+       fontWeight: 'bold'
+     }
+   });
+
    state = { joke: '', bgcolor: '' };
 
    componentDidMount() {
@@ -61,40 +98,3 @@ import DadJoke from './components/DadJoke';
      );
    }
  }
-
- const colors = [
-   '#00FFFF', //Aqua
-   '#7FFFD4', //Aquamarine
-   '#EE82EE', //Violet
-   '#7FFF00', //Chartreuse
-   '#FF7F50', //Coral
-   '#6495ED', //CornflowerBlue
-   '#DC143C', //Crimson
-   '#006400', //Dark Green
-   '#FF8C00', //Dark Orange
-   '#FF1493', //Deep Pink
-   '#1E90FF', //Dodger Blue
-   '#FFD700', //Gold
-   '#FFFFFF', //White
- ] //13
-
- const styles = StyleSheet.create({
-   container: {
-     flex: 1,
-     backgroundColor: this.state.bgcolor,
-     paddingBottom: 40,
-     padding: 20,
-   },
-   opener: {
-     paddingTop: 40,
-     padding: 10,
-     fontSize: 23,
-     textAlign: 'center',
-     fontWeight: 'bold'
-   },
-   infinite: {
-     fontSize: 30,
-     textAlign: 'center',
-     fontWeight: 'bold'
-   }
- });
