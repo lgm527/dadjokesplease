@@ -13,4 +13,4 @@ What more could you ask for?
 
 # 1.0 - Basic
 
-![Image description](https://github.com/lgm527/dadjokesplease/blob/master/assets/Screenshot_20191203-150215.png)
+![Image description](https://github.com/lgm527/dadjokesplease/blob/master/assets/Screenshot_20191203-150215.png=250x250)
