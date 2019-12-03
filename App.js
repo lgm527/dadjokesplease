@@ -2,55 +2,27 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import DadJoke from './components/DadJoke';
 
+let randomHex = () => {
+      let letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++ ) {
+         color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
  export default class App extends Component {
-
-  colors = [
-     '#00FFFF', //Aqua
-     '#7FFFD4', //Aquamarine
-     '#EE82EE', //Violet
-     '#7FFF00', //Chartreuse
-     '#FF7F50', //Coral
-     '#6495ED', //CornflowerBlue
-     '#DC143C', //Crimson
-     '#006400', //Dark Green
-     '#FF8C00', //Dark Orange
-     '#FF1493', //Deep Pink
-     '#1E90FF', //Dodger Blue
-     '#FFD700', //Gold
-     '#FFFFFF', //White
-   ] //13
-
-    styles = StyleSheet.create({
-     container: {
-       flex: 1,
-       backgroundColor: this.state.bgcolor,
-       paddingBottom: 40,
-       padding: 20,
-     },
-     opener: {
-       paddingTop: 40,
-       padding: 10,
-       fontSize: 23,
-       textAlign: 'center',
-       fontWeight: 'bold'
-     },
-     infinite: {
-       fontSize: 30,
-       textAlign: 'center',
-       fontWeight: 'bold'
-     }
-   });
 
    state = { joke: '', bgcolor: '' };
 
    componentDidMount() {
      this.fetchDadJoke();
-     this.setState({ bgcolor: 'White' });
+     this.setState({ bgcolor: randomHex() });
    }
 
    updateJokeAndColor() {
      this.fetchDadJoke();
-     this.changeBGColor();
+     this.setState({ bgcolor: randomHex() });
    }
 
    fetchDadJoke() {
@@ -67,19 +39,10 @@ import DadJoke from './components/DadJoke';
      })
    }
 
-   getRandomArbitrary(min, max) {
-     return Math.random() * (max - min) + min;
-    }
-
-   changeBGColor() {
-     let index = getRandomArbitrary(0, 13);
-     this.setState({ bgcolor: colors[index] });
-   }
-
    render() {
 
      return (
-       <View style={styles.container}>
+       <View style={[styles.container, {backgroundColor: this.state.bgcolor}]}>
 
           <Text style={styles.opener}>Welcome to your infinite supply of dad jokes!</Text>
           <Text style={styles.infinite}>∞ 👨 💬</Text>
@@ -98,3 +61,27 @@ import DadJoke from './components/DadJoke';
      );
    }
  }
+
+ const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: randomHex(),
+    paddingBottom: 40,
+    padding: 20,
+  },
+  opener: {
+    paddingTop: 40,
+    padding: 10,
+    fontSize: 23,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    textShadowColor: 'white',
+    textShadowOffset: {width: -3, height: 3},
+    textShadowRadius: 10
+  },
+  infinite: {
+    fontSize: 30,
+    textAlign: 'center',
+    fontWeight: 'bold'
+  }
+});
