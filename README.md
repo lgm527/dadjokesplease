@@ -8,6 +8,9 @@ What more could you ask for?
 # Blog
 https://medium.com/@lgm527/one-simple-request-dad-jokes-please-cf6256537b9d
 
+# Expo Project Page
+https://expo.io/@lgm527/dad-jokes-please
+
 # 2.0 - Rave
 ![Pink](https://github.com/lgm527/dadjokesplease/blob/master/assets/Screenshot_20191203-150336.png)
 ![Green](https://github.com/lgm527/dadjokesplease/blob/master/assets/Screenshot_20191203-150257.png)
